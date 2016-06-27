@@ -8,8 +8,10 @@ This script tries to detect and display:
 * System distribution
 * Kernel informations
 * Processor architecture
+* Unix emulated environment informations (if available)
 
 ## Compatibility
+### Operating systems
 *Note: "P." stands for "Print"*  
 
 | Operating system | Distribution    | Compatibility | P. OS  | P. Distrib | P. Kernel | P. Processor |
@@ -27,4 +29,11 @@ This script tries to detect and display:
 | Mac OS X         | OS X*           | Not tested    | Yes    | No         | No        | No           |
 | SunOS (Solaris)  | Solaris*        | Not tested    | Yes    | No         | No        | Yes          |
 | AIX              | AIX*            | Not tested    | Yes    | No         | No        | No           |
-| Windows          | mingw32         | Not tested    | Yes    | No         | No        | No           |
+| Windows          | *               | Not tested    | Yes    | No         | No        | No           |
+
+### Emulated environments
+*Note: "P." stands for "Print", "E." for "Emulated"*  
+| Operating system | Unix emulator | Compatibility | P. Emulator | P.E. Kernel | P.E. Processor |
+|------------------|---------------|---------------|-------------|-------------|----------------|
+| Windows          | Cygwin        | Yes           | Yes         | Yes         | Yes            |
+| Windows          | Msys (MinGW)  | Yes           | Yes         | Yes         | Yes            |
