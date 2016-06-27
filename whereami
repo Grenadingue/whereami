@@ -61,7 +61,16 @@ elif [ "$(uname -s)" == "AIX" ]; then
 
 elif [ "${OS}" == "Windows_NT" ]; then
     OS="Microsoft Windows"
-    DISTRIB="Unknown"
+
+    SCRIPT="/tmp/windows_version.bat"
+    # echo "@echo off" > "${SCRIPT}"
+    echo -e "@echo off\nreg query \"HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\" /v \"ProductName\"" > "${SCRIPT}"
+    chmod 755 "${SCRIPT}"
+
+    DISTRIB_VERSION=`cmd /c ver | sed '1d' | cut -d ' ' -f 4 | cut -d ] -f 1`
+    DISTRIB_RELEASE=`${SCRIPT} | grep ProductName | cut -d ' ' -f 13-`
+
+    DISTRIB="${DISTRIB_RELEASE} (${DISTRIB_VERSION})"
     KERNEL="Unknown"
     ARCH="Unknown"
 
