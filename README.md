@@ -33,6 +33,7 @@ This script tries to detect and display:
 
 ### Emulated environments
 *Note: "P." stands for "Print", "E." for "Emulated"*  
+
 | Operating system | Unix emulator | Compatibility | P. Emulator | P.E. Kernel | P.E. Processor |
 |------------------|---------------|---------------|-------------|-------------|----------------|
 | Windows          | Cygwin        | Yes           | Yes         | Yes         | Yes            |
