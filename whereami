@@ -1,0 +1,75 @@
+#!/bin/sh
+
+if [ "$(uname -s)" == "Linux" ]; then
+    OS=`uname -o`
+    DISTRIB="Unknown"
+    KERNEL_RELEASE=`uname -r`
+    KERNEL_VERSION=`uname -v`
+    KERNEL="${KERNEL_RELEASE} ${KERNEL_VERSION}"
+    ARCH=`uname -m`
+
+    if [ -f /etc/arch-release ]; then
+	DISTRIB="Arch Linux"
+
+    elif [ -f /etc/debian_version ]; then
+	DISTRIB_VERSION=`lsb_release -r | cut -d ':' -f 2 | cut -f 2`
+	DISTRIB_CODENAME=`lsb_release -c | cut -d ':' -f 2 | cut -f 2`
+	DISTRIB="Debian ${DISTRIB_VERSION} (${DISTRIB_CODENAME})"
+
+    elif [ -f /etc/SUSE-release ]; then
+	DISTRIB="SUSE"
+
+    elif [ -f /etc/redhat-release ]; then
+	DISTRIB="RedHat"
+
+    elif [ -f /etc/fedora-release ]; then
+	DISTRIB="Fedora"
+
+    elif [ -f /etc/slackware-release ]; then
+	DISTRIB="Slackware"
+
+    elif [ -f /etc/mandrake-release ]; then
+	DISTRIB="Mandrake"
+
+    elif [ -f /etc/yellowdog-release ]; then
+	DISTRIB="Yellow Dog"
+
+    elif [ -f /etc/gentoo-release ]; then
+	DISTRIB="Gentoo"
+
+    elif [ -f /etc/UnitedLinux-release ]; then
+	DISTRIB="UnitedLinux"
+    fi
+
+elif [ "$(uname)" == "Darwin" ]; then
+    OS="Mac OS X"
+    DISTRIB="Unknown"
+    KERNEL="Unknown"
+    ARCH="Unknown"
+
+elif [ "$(uname -s)" == "SunOS" ]; then
+    OS=Solaris
+    DISTRIB="Unknown"
+    KERNEL="Unknown"
+    ARCH=`uname -p`
+
+elif [ "$(uname -s)" == "AIX" ]; then
+    OS="AIX"
+    DISTRIB="Unknown"
+    KERNEL="Unknown"
+    ARCH="Unknown"
+
+elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
+    OS="Windows"
+    DISTRIB="Unknown"
+    KERNEL="Unknown"
+    ARCH="Unknown"
+fi
+
+echo
+echo "Operating system: ${OS}"
+echo "System distribution: ${DISTRIB}"
+echo "Kernel: ${KERNEL}"
+echo "Processor architecure: ${ARCH}"
+
+exit 0
