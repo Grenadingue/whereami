@@ -14,27 +14,30 @@ This script tries to detect and display:
 ### Operating systems
 *Note: "P." stands for "Print"*  
 
-| Operating system | Distribution    | Compatibility | P. OS  | P. Distrib | P. Kernel | P. Processor |
-|------------------|-----------------|---------------|--------|------------|-----------|--------------|
-| Linux            | Arch Linux      | Yes           | Yes    | Yes        | Yes       | Yes          |
-| Linux            | Debian          | Yes (jessie)  | Yes    | Yes        | Yes       | Yes          |
-| Linux            | SUSE            | Not tested    | Yes    | Yes        | Yes       | Yes          |
-| Linux            | RedHat          | Not tested    | Yes    | Yes        | Yes       | Yes          |
-| Linux            | Fedora          | Not tested    | Yes    | Yes        | Yes       | Yes          |
-| Linux            | Slackware       | Not tested    | Yes    | Yes        | Yes       | Yes          |
-| Linux            | Mandrake        | Not tested    | Yes    | Yes        | Yes       | Yes          |
-| Linux            | YellowDog       | Not tested    | Yes    | Yes        | Yes       | Yes          |
-| Linux            | Gentoo          | Not tested    | Yes    | Yes        | Yes       | Yes          |
-| Linux            | UnitedLinux     | Not tested    | Yes    | Yes        | Yes       | Yes          |
-| Mac OS X         | OS X*           | Not tested    | Yes    | No         | No        | No           |
-| SunOS (Solaris)  | Solaris*        | Not tested    | Yes    | No         | No        | Yes          |
-| AIX              | AIX*            | Not tested    | Yes    | No         | No        | No           |
-| Windows          | *               | Not tested    | Yes    | No         | No        | No           |
+| Operating system | Distribution    | Tested       | P. OS  | P. Distrib | P. Kernel | P. Processor |
+|------------------|-----------------|--------------|--------|------------|-----------|--------------|
+| Linux            | Arch Linux      | Yes          | Yes    | Yes        | Yes       | Yes          |
+| Linux            | Debian          | Yes (jessie) | Yes    | Yes        | Yes       | Yes          |
+| Linux            | SUSE            | No           | Yes    | Yes        | Yes       | Yes          |
+| Linux            | RedHat          | No           | Yes    | Yes        | Yes       | Yes          |
+| Linux            | Fedora          | No           | Yes    | Yes        | Yes       | Yes          |
+| Linux            | Slackware       | No           | Yes    | Yes        | Yes       | Yes          |
+| Linux            | Mandrake        | No           | Yes    | Yes        | Yes       | Yes          |
+| Linux            | YellowDog       | No           | Yes    | Yes        | Yes       | Yes          |
+| Linux            | Gentoo          | No           | Yes    | Yes        | Yes       | Yes          |
+| Linux            | UnitedLinux     | No           | Yes    | Yes        | Yes       | Yes          |
+| Mac OS X         | OS X*           | No           | Yes    | No         | No        | No           |
+| SunOS (Solaris)  | Solaris*        | No           | Yes    | No         | No        | Yes          |
+| AIX              | AIX*            | No           | Yes    | No         | No        | No           |
+| Windows          | 10              | Yes          | Yes    | Yes        | No        | No           |
+| Windows          | 8.1             | No           | Yes    | Yes        | No        | No           |
+| Windows          | 8               | No           | Yes    | Yes        | No        | No           |
+| Windows          | 7               | No           | Yes    | Yes        | No        | No           |
 
 ### Emulated environments
 *Note: "P." stands for "Print", "E." for "Emulated"*  
 
-| Operating system | Unix emulator | Compatibility | P. Emulator | P.E. Kernel | P.E. Processor |
-|------------------|---------------|---------------|-------------|-------------|----------------|
-| Windows          | Cygwin        | Yes           | Yes         | Yes         | Yes            |
-| Windows          | Msys (MinGW)  | Yes           | Yes         | Yes         | Yes            |
+| Operating system | Unix emulator | Tested    | P. Emulator | P.E. Kernel | P.E. Processor |
+|------------------|---------------|-----------|-------------|-------------|----------------|
+| Windows          | Cygwin        | Yes (10)  | Yes         | Yes         | Yes            |
+| Windows          | Msys (MinGW)  | Yes (10)  | Yes         | Yes         | Yes            |
