@@ -59,11 +59,18 @@ elif [ "$(uname -s)" == "AIX" ]; then
     KERNEL="Unknown"
     ARCH="Unknown"
 
-elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
-    OS="Windows"
+elif [ "${OS}" == "Windows_NT" ]; then
+    OS="Microsoft Windows"
     DISTRIB="Unknown"
     KERNEL="Unknown"
     ARCH="Unknown"
+
+    EMULATED_ENVIRONMENT=true
+    UNIX_EMULATOR="`uname -o` (`uname -s`)"
+    EMULATED_KERNEL_RELEASE=`uname -r`
+    EMULATED_KERNEL_VERSION=`uname -v`
+    EMULATED_KERNEL="${EMULATED_KERNEL_RELEASE} ${EMULATED_KERNEL_VERSION}"
+    EMULATED_ARCH=`uname -m`
 fi
 
 echo
@@ -71,5 +78,12 @@ echo "Operating system: ${OS}"
 echo "System distribution: ${DISTRIB}"
 echo "Kernel: ${KERNEL}"
 echo "Processor architecure: ${ARCH}"
+
+if [ ! -z "${EMULATED_ENVIRONMENT+x}" ]; then
+    echo
+    echo "Unix emulator: ${UNIX_EMULATOR}"
+    echo "Emulated kernel: ${EMULATED_KERNEL}"
+    echo "Emulated architecure: ${EMULATED_ARCH}"
+fi
 
 exit 0
