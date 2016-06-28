@@ -81,7 +81,6 @@ elif [ "${OS}" == "Windows_NT" ]; then
     EMULATED_ARCH=`uname -m`
 fi
 
-echo
 echo "Operating system: ${OS}"
 echo "System distribution: ${DISTRIB}"
 echo "Kernel: ${KERNEL}"
@@ -93,5 +92,3 @@ if [ ! -z "${EMULATED_ENVIRONMENT+x}" ]; then
     echo "Emulated kernel: ${EMULATED_KERNEL}"
     echo "Emulated architecure: ${EMULATED_ARCH}"
 fi
-
-return 0
