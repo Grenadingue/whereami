@@ -63,7 +63,6 @@ elif [ "${OS}" == "Windows_NT" ]; then
     OS="Microsoft Windows"
 
     SCRIPT="/tmp/windows_version.bat"
-    # echo "@echo off" > "${SCRIPT}"
     echo -e "@echo off\nreg query \"HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\" /v \"ProductName\"" > "${SCRIPT}"
     chmod 755 "${SCRIPT}"
 
@@ -95,4 +94,4 @@ if [ ! -z "${EMULATED_ENVIRONMENT+x}" ]; then
     echo "Emulated architecure: ${EMULATED_ARCH}"
 fi
 
-exit 0
+return 0
