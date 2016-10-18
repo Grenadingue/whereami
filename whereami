@@ -11,6 +11,12 @@ if [ "$(uname -s)" == "Linux" ]; then
     if [ -f /etc/arch-release ]; then
 	DISTRIB="Arch Linux"
 
+    elif [ -f /etc/ordissimo/version ]; then
+	DISTRIB_VERSION=`cat /etc/lsb-release | grep DISTRIB_RELEASE | cut -d '=' -f 2`
+	MACHINE_CODENAME=`cat /etc/ordissimo/version | grep ORDISSIMO_VERSION= | cut -d '=' -f 2`
+	DEBIAN_VERSION=`cat /etc/debian_version | tr -d '\n'`
+	DISTRIB="Ordissimo-${DISTRIB_VERSION} ${MACHINE_CODENAME} (Debian ${DEBIAN_VERSION})"
+
     elif [ -f /etc/debian_version ]; then
 	DISTRIB_VERSION=`lsb_release -r | cut -d ':' -f 2 | cut -f 2`
 	DISTRIB_CODENAME=`lsb_release -c | cut -d ':' -f 2 | cut -f 2`
