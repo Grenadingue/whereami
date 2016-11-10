@@ -11,6 +11,10 @@ if [ "$(uname -s)" == "Linux" ]; then
     if [ -f /etc/arch-release ]; then
 	DISTRIB="Arch Linux"
 
+    elif grep "Ubuntu" /etc/lsb-release 2>&1 1>/dev/null; then
+	. /etc/lsb-release
+	DISTRIB=$DISTRIB_DESCRIPTION
+
     elif [ -f /etc/ordissimo/version ]; then
 	DISTRIB_VERSION=`cat /etc/lsb-release | grep DISTRIB_RELEASE | cut -d '=' -f 2`
 	MACHINE_CODENAME=`cat /etc/ordissimo/version | grep ORDISSIMO_VERSION= | cut -d '=' -f 2`
