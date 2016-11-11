@@ -91,7 +91,13 @@ elif [ "${OS}" == "Windows_NT" ]; then
     EMULATED_ARCH=`uname -m`
 fi
 
-if [ "$1" != "--quiet" ] && [ "$1" != "-q" ]; then
+if [ "$1" == "--export-stdout" ] || [ "$1" == "-e" ]; then
+  echo "OS=${OS}"
+  echo "DISTRIB=${DISTRIB}"
+  echo "KERNEL=${KERNEL}"
+  echo "ARCH=${ARCH}"
+
+elif [ "$1" != "--quiet" ] && [ "$1" != "-q" ]; then
   echo "Operating system: ${OS}"
   echo "System distribution: ${DISTRIB}"
   echo "Kernel: ${KERNEL}"
