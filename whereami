@@ -13,7 +13,7 @@ if [ "$(uname -s)" == "Linux" ]; then
 
     elif grep "Ubuntu" /etc/lsb-release 2>&1 1>/dev/null; then
 	. /etc/lsb-release
-	DISTRIB=$DISTRIB_DESCRIPTION
+	DISTRIB="${DISTRIB_DESCRIPTION} (${DISTRIB_CODENAME})"
 
     elif [ -f /etc/ordissimo/version ]; then
 	DISTRIB_VERSION=`cat /etc/lsb-release | grep DISTRIB_RELEASE | cut -d '=' -f 2`
