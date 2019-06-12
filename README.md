@@ -30,10 +30,10 @@ This script tries to detect and display:
 | Darwin           | macOS           | No           | Yes    | Yes        | Yes       | No           |
 | SunOS (Solaris)  | Solaris*        | No           | Yes    | No         | No        | Yes          |
 | AIX              | AIX*            | No           | Yes    | No         | No        | No           |
-| Windows          | 10              | Yes          | Yes    | Yes        | No        | No           |
-| Windows          | 8.1             | No           | Yes    | Yes        | No        | No           |
-| Windows          | 8               | No           | Yes    | Yes        | No        | No           |
-| Windows          | 7               | No           | Yes    | Yes        | No        | No           |
+| Windows          | 10              | Yes          | Yes    | Yes        | Yes       | Yes          |
+| Windows          | 8.1             | No           | Yes    | Yes        | Yes       | Yes          |
+| Windows          | 8               | No           | Yes    | Yes        | Yes       | Yes          |
+| Windows          | 7               | No           | Yes    | Yes        | Yes       | Yes          |
 
 ### Emulated environments
 *Note: "P." stands for "Print", "E." for "Emulated"*  
