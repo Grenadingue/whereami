@@ -26,7 +26,8 @@ This script tries to detect and display:
 | Linux            | YellowDog       | No           | Yes    | Yes        | Yes       | Yes          |
 | Linux            | Gentoo          | No           | Yes    | Yes        | Yes       | Yes          |
 | Linux            | UnitedLinux     | No           | Yes    | Yes        | Yes       | Yes          |
-| Mac OS X         | OS X*           | No           | Yes    | No         | No        | No           |
+| BSD              | \*BSD\*         | No           | Yes    | Yes        | Yes       | Yes          |
+| Darwin           | macOS           | No           | Yes    | Yes        | Yes       | No           |
 | SunOS (Solaris)  | Solaris*        | No           | Yes    | No         | No        | Yes          |
 | AIX              | AIX*            | No           | Yes    | No         | No        | No           |
 | Windows          | 10              | Yes          | Yes    | Yes        | No        | No           |
