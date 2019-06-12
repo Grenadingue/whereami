@@ -52,10 +52,16 @@ if [ "$(uname -s)" == "Linux" ]; then
   fi
 
 elif [ "$(uname)" == "Darwin" ]; then
-  OS="Mac OS X"
-  DISTRIB="Unknown"
-  KERNEL="Unknown"
-  ARCH="Unknown"
+  OS="Darwin"
+  DISTRIB="`sw_vers -productName` `sw_vers -productVersion`"
+  KERNEL="XNU"
+  ARCH="`uname -m`"
+  
+elif [ "$(uname)" == "Darwin" ]; then
+  OS="Darwin"
+  DISTRIB="`sw_vers -productName` `sw_vers -productVersion`"
+  KERNEL="XNU"
+  ARCH="`uname -m`"
 
 elif [ "$(uname -s)" == "SunOS" ]; then
   OS=Solaris
@@ -63,25 +69,33 @@ elif [ "$(uname -s)" == "SunOS" ]; then
   KERNEL="Unknown"
   ARCH=`uname -p`
 
+elif [[ "$OSTYPE" == "bsd"* ]] || [[ "$OSTYPE" == *"bsd" ]]; then
+  KERNEL="BSD"
+  OS="BSD"
+  ARCH=`uname -p`
+  case "$OSTYPE" in
+        dragonfly*)     DISTRIB="DragonFlyBSD $(uname -r | grep -o '[0-9]*\.[0-9]')${NORMAL}" ;;
+        FreeBSD*)       DISTRIB="FreeBSD $(uname -r | grep -o '[0-9]*\.[0-9]')${NORMAL}" ;;
+        netbsd*)        DISTRIB="NetBSD $(uname -r | grep -o '[0-9]*\.[0-9]')${NORMAL}" ;;
+        bsd*)           DISTRIB="BSD* $(uname -r | grep -o '[0-9]*\.[0-9]')${NORMAL}" ;;
+        *bsd)           DISTRIB="*BSD $(uname -r | grep -o '[0-9]*\.[0-9]')${NORMAL}" ;;
+  esac
+
 elif [ "$(uname -s)" == "AIX" ]; then
   OS="AIX"
   DISTRIB="Unknown"
   KERNEL="Unknown"
   ARCH="Unknown"
-
+  
 elif [ "${OS}" == "Windows_NT" ]; then
   OS="Microsoft Windows"
-
-  SCRIPT="/tmp/windows_version.bat"
-  echo -e "@echo off\nreg query \"HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\" /v \"ProductName\"" > "${SCRIPT}"
-  chmod 755 "${SCRIPT}"
 
   DISTRIB_VERSION=`cmd /c ver | sed '1d' | cut -d ' ' -f 4 | cut -d ] -f 1`
   DISTRIB_RELEASE=`${SCRIPT} | grep ProductName | cut -d ' ' -f 13-`
 
   DISTRIB="${DISTRIB_RELEASE} (${DISTRIB_VERSION})"
-  KERNEL="Unknown"
-  ARCH="Unknown"
+  KERNEL="Windows NT `@echo off\nreg query \"HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\" /v \"ProductName\"`"
+  ARCH="`@echo OFF\nreg Query "HKLM\Hardware\Description\System\CentralProcessor\0" | find /i "x86" > NUL && set OS=32BIT || set OS=64BIT\nif %OS%==x86\nif %OS%==amd64`"
 
   EMULATED_ENVIRONMENT=true
   UNIX_EMULATOR="`uname -o` (`uname -s`)"
